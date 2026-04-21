@@ -26,7 +26,7 @@ const players = [
       title: "Carlsen vs. Nepomniachtchi",
       year: 2021,
       event: "World Championship",
-      reason: "A 136-move win for Carlsen that lasted 7 hours 45 minutes. As of 2026, it is the longest game in the history of the World Chess Championship.",
+      reason: "A 136-move win for Carlsen that lasted 7 hours 45 minutes.",
       previewImage: "assets/games/carlsen.gif",
       playingAs: "White"
     }
@@ -35,7 +35,7 @@ const players = [
     name: "Bobby Fischer",
     country: "United States",
     peakElo: 2785,
-    famousFor: "Aggresiveness",
+    famousFor: "Aggression",
     image: "assets/players/fischer.jpg",
     memorableGame: {
       title: "Donald Byrne vs. Fischer",
@@ -44,6 +44,141 @@ const players = [
       reason: "Fischer played this game at 13years old. Dubbed 'The Game of the Century'",
       previewImage: "assets/games/fischer.gif",
       playingAs: "Black"
+    }
+  },
+  {
+    name: "Anatoly Karpov",
+    country: "Russia",
+    peakElo: 2780,
+    famousFor: "Attacking",
+    image: "assets/players/karpov.jpg",
+    memorableGame: {
+      title: "Karpov vs. Sax",
+      year: 1983,
+      event: "Linares",
+      reason: "Karpov sacrifices for an attack that wins the game 20 moves later.",
+      previewImage: "assets/games/karpov.gif",
+      playingAs: "White"
+    }
+  },
+  {
+    name: "Viswanathan Anand",
+    country: "India",
+    peakElo: 2817,
+    famousFor: "Tactics",
+    image: "assets/players/anand.jpg",
+    memorableGame: {
+      title: "Aronian vs. Anand",
+      year: 2013,
+      event: "Wijk aan Zee",
+      reason: "Anand plays an attacking masterpiece, sacrificing multiple pieces in a relentless attack against the white king in what is widely considered to be his immortal game.",
+      previewImage: "assets/games/anand.gif",
+      playingAs: "Black"
+    }
+  },
+  {
+    name: "Mikhail Tal",
+    country: "Latvia",
+    peakElo: 2705,
+    famousFor: "Sacrifices",
+    image: "assets/players/tal.jpg",
+    memorableGame: {
+      title: "Tal vs. Petrosian",
+      year: 1974,
+      event: "Soviet Team Cup",
+      reason: "Tal destroys perhaps the greatest defensive player of all time in 23 moves.",
+      previewImage: "assets/games/tal.gif",
+      playingAs: "White"
+    }
+  },
+  {
+    name: "José Raúl Capablanca",
+    country: "Cuba",
+    peakElo: 2725,
+    famousFor: "Endgames",
+    image: "assets/players/capablanca.jpg",
+    memorableGame: {
+      title: "Kan vs. Capablanca",
+      year: 1936,
+      event: "Vienna Game",
+      reason: "This game contains one of Capablanca's most famous endgames.",
+      previewImage: "assets/games/capablanca.gif",
+      playingAs: "Black"
+    }
+  },
+  {
+    name: "Hikaru Nakamura",
+    country: "United States",
+    peakElo: 2816,
+    famousFor: "Blitz",
+    image: "assets/players/nakamura.jpg",
+    memorableGame: {
+      title: "Nakamura vs. Carlsen",
+      year: 2025,
+      event: "Norway Chess",
+      reason: "Hikaru beats his long standing rival Magnus Carlsen in a super tactical game.",
+      previewImage: "assets/games/nakamura.gif",
+      playingAs: "White"
+    }
+  },
+  {
+    name: "Fabiano Caruana",
+    country: "United States",
+    peakElo: 2844,
+    famousFor: "Preparation",
+    image: "assets/players/caruana.jpg",
+    memorableGame: {
+      title: "Fabiano vs. Carlsen",
+      year: 2014,
+      event: "Sinquefield Cup",
+      reason: "This game is notable for its high stakes and Caruana's brilliant play.",
+      previewImage: "assets/games/caruana.gif",
+      playingAs: "White"
+    }
+  },
+  {
+    name: "Judit Polgár",
+    country: "Hungary",
+    peakElo: 2735,
+    famousFor: "Aggression",
+    image: "assets/players/polgar.jpg",
+    memorableGame: {
+      title: "Polgár vs. Kasparov",
+      year: 2002,
+      event: "Russia vs Rest of the World",
+      reason: "Judit Polgár rated 2681 beats Garry Kasparov who was rated 2838. The match was pegged 'Match of the New Century'.",
+      previewImage: "assets/games/polgar.gif",
+      playingAs: "White"
+    }
+  },
+  {
+    name: "Mikhail Botvinnik",
+    country: "Russia",
+    peakElo: 2720,
+    famousFor: "Strategy",
+    image: "assets/players/botvinnik.jpg",
+    memorableGame: {
+      title: "Botvinnik vs. Capablanca",
+      year: 1938,
+      event: "AVRO Tournament",
+      reason: "Widely considered one of the greatest games ever played. Botvinnik defeats the legendary Capablanca with a stunning knight sacrifice that decides the game.",
+      previewImage: "assets/games/botvinnik.gif",
+      playingAs: "White"
+    }
+  },
+  {
+    name: "Paul Morphy",
+    country: "United States",
+    peakElo: 2690,
+    famousFor: "Open play",
+    image: "assets/players/morphy.jpg",
+    memorableGame: {
+      title: "Morphy vs. Duke of Brunswick",
+      year: 1858,
+      event: "Paris Opera House",
+      reason: "Known as 'The Opera Game'; Morphy demolishes two noblemen in a box at the Paris Opera, sacrificing his queen to deliver a stunning checkmate. Possibly the most famous game in chess history.",
+      previewImage: "assets/games/morphy.gif",
+      playingAs: "White"
     }
   },
 ]
