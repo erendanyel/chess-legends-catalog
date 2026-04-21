@@ -5,7 +5,7 @@ body {
 }
 
 .main-header {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: greenyellow;
   padding-bottom: 10px;
 }
 
@@ -13,9 +13,9 @@ body {
   text-align: center;
   margin: 0;
   font-size: 8em;
-  font-family: "Helvetica";
-  font-weight: normal;
-  color: white;
+  font-family: "Impact", sans-serif;
+  font-weight: 100;
+  color: black;
 }
 
 #card-container {
@@ -45,6 +45,11 @@ body {
 
 /* Flip card when you hover over it*/
 .card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Make a class version too, that we can add via JavaScript */
+.card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
@@ -118,7 +123,7 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: greenyellow;
   padding: 10px;
 }
 

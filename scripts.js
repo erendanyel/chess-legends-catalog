@@ -209,10 +209,10 @@ document.addEventListener("DOMContentLoaded", populateFilters);
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
+function flipCards() {
+  document.querySelectorAll(".card").forEach((card) => {
+    card.classList.toggle("flipped");
+  }
   );
 }
 
