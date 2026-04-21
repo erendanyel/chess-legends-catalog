@@ -30,7 +30,6 @@ const players = [
     name: "Garry Kasparov",
     country: "Russia",
     peakElo: 2851,
-    era: "Modern",
     famousFor: "Attacking",
     image: "assets/players/kasparov.jpg",
     memorableGame: {
@@ -46,7 +45,6 @@ const players = [
     name: "Magnus Carlsen",
     country: "Norway",
     peakElo: 2882,
-    era: "Modern",
     famousFor: "Endgames",
     image: "assets/players/carlsen.jpg",
     memorableGame: {
@@ -62,7 +60,6 @@ const players = [
     name: "Bobby Fischer",
     country: "United States",
     peakElo: 2785,
-    era: "Modern",
     famousFor: "Aggresiveness",
     image: "assets/players/fischer.jpg",
     memorableGame: {
@@ -85,29 +82,48 @@ function showCards() {
   for (let i = 0; i < players.length; i++) {
     let title = players[i]["name"];
 
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     editCardContent(nextCard, players[i]); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
+// This function edits the template card's content
 function editCardContent(card, player) {
   const frontFace = card.querySelector(".card-front");
   const backFace = card.querySelector(".card-back");
+  
+  const memorableGame = player["memorableGame"];
 
+  // Front of the card
   card.style.display = "";
-  frontFace.style.display = "flex";
-
-  const cardHeader = frontFace.querySelector("h2");
+  const cardHeader = frontFace.querySelector(".player-name");
   cardHeader.textContent = player["name"];
   frontFace.style.backgroundImage = "url("+  player["image"] + ")";
 
+  const cardCountry = frontFace.querySelector(".player-country");
+  cardCountry.textContent = "Country: " + player["country"];
+
+  const cardPeakELO = frontFace.querySelector(".player-elo");
+  cardPeakELO.textContent = "Peak Elo: " + player["peakElo"];
+
+  const cardPlayFact = frontFace.querySelector(".player-fact");
+  cardPlayFact.textContent = "Famous for: " + player["famousFor"];
+
+  // Back of the card
+  const gameTitle = backFace.querySelector(".game-title");
+  gameTitle.textContent = memorableGame["title"];
+
+  const gameDetails = backFace.querySelector(".game-details");
+  gameDetails.textContent = "Game took place in " + memorableGame["year"] + " at " + memorableGame["event"] + ". ";
+  gameDetails.textContent += memorableGame["reason"];
+
+  const playingAs = backFace.querySelector(".game-playing-as");
+  playingAs.textContent = player["name"] + " playing as the " + memorableGame["playingAs"].toLowerCase() + " pieces.";
+
+
   const gameGIF = backFace.querySelector("img");
   gameGIF.src = player["memorableGame"]["previewImage"];
-  console.log(player["memorableGame"]);
 }
 
 // This calls the addCards() function when the page is first loaded

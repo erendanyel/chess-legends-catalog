@@ -12,14 +12,26 @@
     <header class="main-header">
       <h1 class="title">♟️ Chess Legends ♟️</h1>
     </header>
+    <div id="search-filter-container">
+      <span id="search-box">
+        <input id="search" type="text" placeholder="Search..."></input>
+        <p>🔍</p>
+      </span>
+    </div>
     <div id="card-container"></div>
     <div class="card" style="display: none">
       <div class="card-inner">
         <div class="card-front">
-          <h2>Player's Name</h2>
+          <h2 class="player-name">Player's Name</h2>
+          <p class="player-country">Country</p>
+          <p class="player-elo">Peak ELO</p>
+          <p class="player-fact">Famous for</p>
         </div>
         <div class="card-back">
-            <img>
+          <h2 class="game-title">Memorable Game</h2>
+          <p class="game-details">Details</p>
+          <p class="game-playing-as">Playing as:</p>
+          <img alt="Game preview">
         </div>
       </div>
     </div>
