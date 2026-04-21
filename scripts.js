@@ -304,6 +304,8 @@ function editCardContent(card, player) {
   
   const memorableGame = player["memorableGame"];
 
+  card.title = player["name"];
+
   // Front of the card
   card.style.display = "";
   const cardHeader = frontFace.querySelector(".player-name");
