@@ -5,6 +5,7 @@
     <title> Chess Legends Catalog</title>
     <meta name="description" content="A Catalog of Chess Legends" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/favicon.ico">
     <script type="text/javascript" src="scripts.js"></script>
   </head>
 
@@ -24,7 +25,7 @@
           <span id="filter-box">
             <p>Sort by name:</p>
             <select id="name-filter" onchange="showCards()">
-              <option value="All">All</option>
+              <option value="All">Default</option>
               <option value="AZ">A-Z</option>
               <option value="ZA">Z-A</option>
             </select>
@@ -37,7 +38,8 @@
           </span>
           <span id="filter-box">
             <p>Max Elo:</p>
-            <input type="range" id="max-elo" min="0" max="100" onchange="showCards()">
+            <input type="range" id="max-elo" min="0" max="100" onchange="updateEloReadout();showCards()">
+            <span id="elo-display">—</span>
           </span>
         </div>
     </div>
