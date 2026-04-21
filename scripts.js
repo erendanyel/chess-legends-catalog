@@ -188,12 +188,16 @@ const players = [
 function populateFilters() {
   const countrySelector = document.querySelector("#country-selector");
   const countrySelectorOption = countrySelector.querySelector("option");
+  const playStyleSelector = document.querySelector("#style-selector");
+  const playStyleSelectorOption = countrySelector.querySelector("option");
 
   const countries = new Set();
+  const playStyles = new Set();
 
   for (const player of players)
   {
     countries.add(player["country"]);
+    playStyles.add(player["famousFor"]);
   }
 
   const eloMaxSlider = document.querySelector("#max-elo");
@@ -206,6 +210,14 @@ function populateFilters() {
     countrySelector.appendChild(nextOption);
   }
 
+  for (const style of playStyles)
+  {
+    const nextOption = playStyleSelectorOption.cloneNode(true);
+    nextOption.value = style;
+    nextOption.textContent = style;
+    playStyleSelector.appendChild(nextOption);
+  }
+
   const maxElo = players.reduce(
     (curMax, next) => curMax["peakElo"] > next["peakElo"] ? curMax : next 
   )["peakElo"]
@@ -215,7 +227,7 @@ function populateFilters() {
   )["peakElo"] 
 
   eloMaxSlider.max = maxElo;
-  eloMaxSlider.min = minElo;
+  eloMaxSlider.min = minElo-1;
   eloMaxSlider.value = maxElo;
   updateEloReadout();
 }
@@ -226,6 +238,7 @@ function filterPass(player)
   const searchField = document.querySelector("#search");
   const countrySelector = document.querySelector("#country-selector");
   const eloMaxSlider = document.querySelector("#max-elo");
+  const playStyleSelector = document.querySelector("#style-selector");
 
 
   if (countrySelector.value != "All" && countrySelector.value != player["country"])
@@ -243,6 +256,11 @@ function filterPass(player)
     return false;
   }
 
+
+  if(playStyleSelector.value != "All" && playStyleSelector.value != player["famousFor"])
+  {
+    return false;
+  }
 
   return true;
 }
