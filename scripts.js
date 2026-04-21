@@ -158,7 +158,7 @@ function editCardContent(card, player) {
   frontFace.style.backgroundImage = "url("+  player["image"] + ")";
 
   const cardCountry = frontFace.querySelector(".player-country");
-  cardCountry.textContent = "Country: " + player["country"];
+  cardCountry.textContent = player["country"];
 
   const cardPeakELO = frontFace.querySelector(".player-elo");
   cardPeakELO.textContent = "Elo " + player["peakElo"];
