@@ -13,10 +13,33 @@
       <h1 class="title">♟️ Chess Legends ♟️</h1>
     </header>
     <div id="search-filter-container">
-      <span id="search-box">
-        <input id="search" type="text" placeholder="Search..."></input>
-        <p>🔍</p>
-      </span>
+        <div id="filter-row-1">
+          <p>Search:</p> 
+          <span id="search-box">
+            <input id="search" type="text" placeholder="Enter name..." onkeyup="showCards()"></input>
+            <p>🔍</p>
+          </span>
+        </div>
+        <div id="filter-row-2">
+          <span id="filter-box">
+            <p>Sort by name:</p>
+            <select id="name-filter" onchange="showCards()">
+              <option value="All">All</option>
+              <option value="AZ">A-Z</option>
+              <option value="ZA">Z-A</option>
+            </select>
+          </span>
+          <span id="filter-box">
+            <p>Country:</p>
+            <select id="country-selector" onchange="showCards()">
+              <option value="All">All</option>
+            </select>
+          </span>
+          <span id="filter-box">
+            <p>Max Elo:</p>
+            <input type="range" id="max-elo" min="0" max="100" onchange="showCards()">
+          </span>
+        </div>
     </div>
     <div id="card-container"></div>
     <div class="card" style="display: none">
