@@ -73,18 +73,97 @@ const players = [
   },
 ]
 
+
+// This function populates the filters
+function populateFilters() {
+  const countrySelector = document.querySelector("#country-selector");
+  const countrySelectorOption = countrySelector.querySelector("option");
+
+  const countries = new Set();
+
+  for (const player of players)
+  {
+    countries.add(player["country"]);
+  }
+
+  const eloMaxSlider = document.querySelector("#max-elo");
+    
+  for (const country of countries)
+  {
+    const nextOption = countrySelectorOption.cloneNode(true);
+    nextOption.value = country;
+    nextOption.textContent = country;
+    countrySelector.appendChild(nextOption);
+  }
+
+  const maxElo = players.reduce(
+    (curMax, next) => curMax["peakElo"] > next["peakElo"] ? curMax : next 
+  )["peakElo"]
+
+  const minElo = players.reduce(
+    (curMax, next) => curMax["peakElo"] < next["peakElo"] ? curMax : next 
+  )["peakElo"] 
+
+  eloMaxSlider.max = maxElo;
+  eloMaxSlider.min = minElo;
+  eloMaxSlider.value = maxElo;
+}
+
+function filterPass(player)
+{
+  const searchField = document.querySelector("#search");
+  const countrySelector = document.querySelector("#country-selector");
+  const eloMaxSlider = document.querySelector("#max-elo");
+
+
+  if (countrySelector.value != "All" && countrySelector.value != player["country"])
+  {
+    return false;
+  }
+
+  if (player["peakElo"] > eloMaxSlider.value)
+  {
+    return false;
+  }
+
+  if(!player["name"].toLowerCase().includes(searchField.value.toLowerCase().trim()))
+  {
+    return false;
+  }
+
+
+  return true;
+}
+
+
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  const templateCard = document.querySelector(".card");
+  const templateCard = document.querySelector(".card");  
 
-  for (let i = 0; i < players.length; i++) {
-    let title = players[i]["name"];
 
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, players[i]); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
+  const sortByName = document.querySelector("#name-filter");
+  const sortedPlayers = [...players];
+  if (sortByName.value == "AZ")
+  {
+    sortedPlayers.sort((a,b) => a["name"] < b["name"] ? -1 : 1);
+  }
+  if (sortByName.value == "ZA")
+  {
+    sortedPlayers.sort((a,b) => a["name"] > b["name"] ? -1 : 1);
+  }
+  
+
+
+  for (let i = 0; i < sortedPlayers.length; i++) {
+    const player = sortedPlayers[i];
+    if (filterPass(player))
+    {
+      const nextCard = templateCard.cloneNode(true); // Copy the template card
+      editCardContent(nextCard, player); // Edit the card content
+      cardContainer.appendChild(nextCard)  // Add new card to the container
+    }
   }
 }
 
@@ -126,6 +205,7 @@ function editCardContent(card, player) {
   gameGIF.src = player["memorableGame"]["previewImage"];
 }
 
+document.addEventListener("DOMContentLoaded", populateFilters);
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
