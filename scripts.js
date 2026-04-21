@@ -161,10 +161,10 @@ function editCardContent(card, player) {
   cardCountry.textContent = "Country: " + player["country"];
 
   const cardPeakELO = frontFace.querySelector(".player-elo");
-  cardPeakELO.textContent = "Peak Elo: " + player["peakElo"];
+  cardPeakELO.textContent = "Elo " + player["peakElo"];
 
   const cardPlayFact = frontFace.querySelector(".player-fact");
-  cardPlayFact.textContent = "Famous for: " + player["famousFor"];
+  cardPlayFact.textContent = player["famousFor"];
 
   // Back of the card
   const gameTitle = backFace.querySelector(".game-title");

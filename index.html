@@ -38,7 +38,7 @@
           </span>
           <span id="filter-box">
             <p>Max Elo:</p>
-            <input type="range" id="max-elo" min="0" max="100" onchange="updateEloReadout();showCards()">
+            <input type="range" id="max-elo" min="0" max="100" oninput="updateEloReadout();showCards()">
             <span id="elo-display">—</span>
           </span>
         </div>
@@ -49,8 +49,10 @@
         <div class="card-front">
           <h2 class="player-name">Player's Name</h2>
           <p class="player-country">Country</p>
-          <p class="player-elo">Peak ELO</p>
-          <p class="player-fact">Famous for</p>
+          <div class="card-pills">
+            <span class="pill pill-elo player-elo">ELO </span>
+            <span class="pill pill-style player-fact">-</span>
+          </div>
         </div>
         <div class="card-back">
           <h2 class="game-title">Memorable Game</h2>

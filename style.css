@@ -5,17 +5,18 @@ body {
 }
 
 .main-header {
-  background-color: greenyellow;
+  background-color: navy;
   padding-bottom: 10px;
 }
 
 .title {
   text-align: center;
   margin: 0;
-  font-size: 8em;
+  font-size: 3em;
   font-family: "Impact", sans-serif;
-  font-weight: 100;
-  color: black;
+  font-weight: 500;
+  color: whitesmoke;
+  letter-spacing: -0.01em;
 }
 
 #card-container {
@@ -123,7 +124,7 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-  background-color: greenyellow;
+  background-color: navy;
   padding: 10px;
 }
 
@@ -199,4 +200,35 @@ button:hover {
 
 #filter-box p {
   padding-right: 5px;
+}
+
+.card-pills {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.pill-elo {
+  background: #EEEDFE;
+  color: #3C3489;
+}
+
+.pill-style {
+  background: #E1F5EE;
+  color: #085041;
+}
+
+
+#elo-display {
+  margin-left:6px; 
+  font-weight:bold; 
+  min-width:36px;
 }
