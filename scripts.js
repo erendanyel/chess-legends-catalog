@@ -89,25 +89,25 @@ function showCards() {
     // own data, you'll need to do something totally different here.
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, players[i]["image"]); // Edit title and image
+    editCardContent(nextCard, players[i]); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
-  card.style.display = "block";
+function editCardContent(card, player) {
+  const frontFace = card.querySelector(".card-front");
+  const backFace = card.querySelector(".card-back");
 
-  const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+  card.style.display = "";
+  frontFace.style.display = "flex";
 
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  const cardHeader = frontFace.querySelector("h2");
+  cardHeader.textContent = player["name"];
+  frontFace.style.backgroundImage = "url("+  player["image"] + ")";
 
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+  const gameGIF = backFace.querySelector("img");
+  gameGIF.src = player["memorableGame"]["previewImage"];
+  console.log(player["memorableGame"]);
 }
 
 // This calls the addCards() function when the page is first loaded
